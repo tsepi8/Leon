@@ -7,9 +7,10 @@
     /* mini player sizing used to ensure exact gap between mini and gallery */
     --mini-top: 20px; /* Reduced from 30px */
     --mini-width: 100px;
-    --mini-height: 100px; /* desktop mini player height */
-    --mini-gap: 5px; /* desired gap between mini bottom and gallery top */
+    --mini-height: 100px;
+    --mini-gap: 5px;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -199,10 +200,10 @@ body::before {
     height: 100%;
     max-width: 650px;
     margin: 0 auto;
-    margin-top: calc(var(--mini-top) + var(--mini-height) + var(--mini-gap)); /* Added this line */
+    margin-top: calc(var(--mini-top) + var(--mini-height) + var(--mini-gap));
     border-radius: 20px;
     padding: 20px 20px;
-    padding-top: 0; /* Changed from var(--mini-gap) */
+    padding-top: 0;
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(5px);
     display: flex;
@@ -215,7 +216,7 @@ body::before {
 
 .gallery-container {
     margin: 0 0 40px 0;
-    margin-top: 0; /* Changed from var(--mini-gap) */
+    margin-top: 0;
     position: relative;
     z-index: 5;
     height: var(--gallery-height);
@@ -407,7 +408,7 @@ body::before {
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        margin-top: calc(var(--mini-top) + var(--mini-height) + var(--mini-gap)); 
+        margin-top: calc(var(--mini-top) + var(--mini-height) + var(--mini-gap));
         padding: 20px 15px;
         gap: 20px;
     }
@@ -433,7 +434,11 @@ body::before {
         line-height: 1.6;
     }
     
-    :root { --mini-width: 80px; --mini-height: 80px; }
+    :root { 
+        --mini-width: 80px; 
+        --mini-height: 80px; 
+        --mini-top: 15px; /* Added for mobile */
+    }
     
     #miniPlayPause {
         width: 44px;
@@ -462,6 +467,7 @@ body::before {
 
     .container {
         margin-top: calc(var(--mini-top) + var(--mini-height) + var(--mini-gap));
+        padding: 15px 10px;
     }
     
     .gallery-container {
@@ -484,20 +490,15 @@ body::before {
         line-height: 1.5;
     }
     
-    :root { --mini-width: 70px; --mini-height: 70px; --mini-top: 10px; }
+    :root { 
+        --mini-width: 70px; 
+        --mini-height: 70px; 
+        --mini-top: 10px; /* Added for mobile */
+    }
     
     #miniPlayPause {
         width: 40px;
         height: 40px;
         font-size: 14px;
     }
-    
-    .emoji {
-        font-size: 20px;
-    }
-    
-    .emoji.small {
-        font-size: 14px;
-    }
-
 }
