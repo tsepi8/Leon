@@ -225,7 +225,7 @@ body::before {
     width: var(--box-width);
     height: var(--box-height);
     transform-style: preserve-3d;
-    animation: animate 60s linear infinite;
+    animation: animate 75s linear infinite;
     margin: auto;
 }
 
@@ -502,3 +502,4 @@ body::before {
     }
 
 }
+
