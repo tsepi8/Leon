@@ -208,7 +208,7 @@ body::before {
 }
 
 .gallery-container {
-    margin-top: 150px;
+    margin-top: 50px auto;
     margin-bottom: 50px auto;
     position: relative;
     z-index: 5;
@@ -502,4 +502,5 @@ body::before {
     }
 
 }
+
 
