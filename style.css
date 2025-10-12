@@ -4,8 +4,12 @@
     --box-height: min(35vw, 280px);
     --gallery-depth: min(100vw, 800px);
     --gallery-height: calc(var(--box-height) + 600px);
+    /* mini player sizing used to ensure exact gap between mini and gallery */
+    --mini-top: 20px; /* Reduced from 30px */
+    --mini-width: 100px;
+    --mini-height: 100px; /* desktop mini player height */
+    --mini-gap: 5px; /* desired gap between mini bottom and gallery top */
 }
-
 * {
     margin: 0;
     padding: 0;
@@ -194,9 +198,11 @@ body::before {
     width: 100%;
     height: 100%;
     max-width: 650px;
-    margin: 100px auto;
+    margin: 0 auto;
+    margin-top: calc(var(--mini-top) + var(--mini-height) + var(--mini-gap)); /* Added this line */
     border-radius: 20px;
-    padding: 30px 20px;
+    padding: 20px 20px;
+    padding-top: 0; /* Changed from var(--mini-gap) */
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(5px);
     display: flex;
@@ -208,8 +214,8 @@ body::before {
 }
 
 .gallery-container {
-    margin-top: 50px auto;
-    margin-bottom: 50px auto;
+    margin: 0 0 40px 0;
+    margin-top: 0; /* Changed from var(--mini-gap) */
     position: relative;
     z-index: 5;
     height: var(--gallery-height);
@@ -217,7 +223,7 @@ body::before {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    padding: 200px 0 400px 0;
+    padding: 100px 0 200px 0;
 }
 
 .box {
@@ -225,16 +231,16 @@ body::before {
     width: var(--box-width);
     height: var(--box-height);
     transform-style: preserve-3d;
-    animation: animate 75s linear infinite;
+    animation: animate 60s linear infinite;
     margin: auto;
 }
 
 @keyframes animate {
     0% {
-        transform: perspective(2000px) rotateY(0deg);
+        transform: perspective(2000px) rotateY(180deg);
     }
     100% {
-        transform: perspective(2000px) rotateY(720deg);
+        transform: perspective(2000px) rotateY(520deg);
     }
 }
 
@@ -246,7 +252,7 @@ body::before {
     height: 100%;
     transform-origin: center;
     transform-style: preserve-3d;
-    transform: rotateY(calc(var(--i)* 18.947deg)) translateZ(var(--gallery-depth));
+    transform: rotateY(calc(var(--i)* 20deg)) translateZ(var(--gallery-depth));
 }
 
 .box span img {
@@ -257,7 +263,7 @@ body::before {
     width: calc(100% - 20px);
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
     -webkit-box-reflect: below 12px linear-gradient(transparent, transparent, rgba(0,0,0,0.4));
@@ -273,8 +279,8 @@ body::before {
     padding: 40px 30px;
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(255, 0, 0, 0.483);
-    margin: 0 20px;
-    margin-bottom: 0 50px;
+    margin: 0 20px auto;
+    margin-bottom: 0 20px auto;
     transform: translateY(-100px);
     border: 2px solid rgba(255, 0, 0, 0.462);
 }
@@ -301,11 +307,11 @@ body::before {
 /* Mini Player Styles */
 #miniPlayer {
     position: fixed;
-    top: 40px;
+    top: var(--mini-top);
     left: 50%;
     transform: translateX(-50%);
-    width: 110px;
-    height: 110px;
+    width: var(--mini-width);
+    height: var(--mini-height);
     border-radius: 14px;
     overflow: hidden;
     z-index: 300;
@@ -401,7 +407,7 @@ body::before {
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        margin: 60px auto 10px;
+        margin-top: calc(var(--mini-top) + var(--mini-height) + var(--mini-gap)); 
         padding: 20px 15px;
         gap: 20px;
     }
@@ -427,10 +433,7 @@ body::before {
         line-height: 1.6;
     }
     
-    #miniPlayer {
-        width: 80px;
-        height: 80px;
-    }
+    :root { --mini-width: 80px; --mini-height: 80px; }
     
     #miniPlayPause {
         width: 44px;
@@ -458,7 +461,7 @@ body::before {
     }
 
     .container {
-        margin: 50px auto 10px;
+        margin-top: calc(var(--mini-top) + var(--mini-height) + var(--mini-gap));
     }
     
     .gallery-container {
@@ -481,11 +484,7 @@ body::before {
         line-height: 1.5;
     }
     
-    #miniPlayer {
-        width: 70px;
-        height: 70px;
-        top: 20px;
-    }
+    :root { --mini-width: 70px; --mini-height: 70px; --mini-top: 10px; }
     
     #miniPlayPause {
         width: 40px;
@@ -502,5 +501,3 @@ body::before {
     }
 
 }
-
-
