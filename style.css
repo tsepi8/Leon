@@ -1,8 +1,8 @@
 :root {
     /* Responsive gallery sizing */
-    --box-width: min(20%, 800px);
-    --box-height: min(35vw, 200px);
-    --gallery-depth: min(80vw, 400px);
+    --box-width: min(40%, 800px);
+    --box-height: min(35vw, 280px);
+    --gallery-depth: min(90vw, 750px);
 }
 
 * {
@@ -215,7 +215,7 @@ body::before {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    padding: 120px 0 180px 0;
+    padding: 150px 0 380px 0;
 }
 
 .box {
@@ -223,7 +223,7 @@ body::before {
     width: var(--box-width);
     height: var(--box-height);
     transform-style: preserve-3d;
-    animation: animate 40s linear infinite;
+    animation: animate 60s linear infinite;
     margin: 0 auto;
 }
 
