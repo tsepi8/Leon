@@ -1,6 +1,6 @@
 :root {
     /* Responsive gallery sizing */
-    --box-width: min(40%, 800px);
+    --box-width: min(50%, 800px);
     --box-height: min(35vw, 280px);
     --gallery-depth: min(90vw, 800px);
 }
@@ -499,4 +499,5 @@ body::before {
     }
 
 }
+
 
