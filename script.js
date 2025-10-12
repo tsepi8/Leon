@@ -15,14 +15,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Playlist and cover mapping
     const playlist = [
-        'songs/TheNightWeMet.mp3',
-        'songs/Ordinary.mp3'
+        'TheNightWeMet.mp3',
+        'Ordinary.mp3'
     ];
     let currentTrack = 0;
 
     const coverMap = {
-        'songs/TheNightWeMet.mp3': 'images/TheNightWeMet.jpg',
-        'songs/Ordinary.mp3': 'images/Ordinary.jpg'
+        'TheNightWeMet.mp3': 'TheNightWeMet.jpg',
+        'Ordinary.mp3': 'Ordinary.jpg'
     };
 
     // Subtitles fully removed (data, timers and helpers) per user request
@@ -276,4 +276,5 @@ document.addEventListener('DOMContentLoaded', function() {
             emojiRainActive = !emojiRainActive;
         }
     });
+
 });
